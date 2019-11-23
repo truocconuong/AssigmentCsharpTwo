@@ -12,7 +12,7 @@ namespace BaiKiemTra2.Controllers
 {
     public class ProductsController : Controller
     {
-        private MyDbContext db = new MyDbContext();
+        private BaiKiemTra2Context db = new BaiKiemTra2Context();
 
         // GET: Products
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace BaiKiemTra2.Controllers
         // GET: Products/Create
         public ActionResult Create()
         {
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName");
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace BaiKiemTra2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,ProductName,SupplierID,Picture,CategoryID,QuantityPerUnit,UnitPrice,UnitslnStock,UnitsOnOrder,ReorderLevel,Distcountinued")] Product product)
+        public ActionResult Create([Bind(Include = "ID,Name,SupplierID,Picture,CategoryID,price")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace BaiKiemTra2.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 
@@ -73,7 +73,7 @@ namespace BaiKiemTra2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 
@@ -82,7 +82,7 @@ namespace BaiKiemTra2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,ProductName,SupplierID,Picture,CategoryID,QuantityPerUnit,UnitPrice,UnitslnStock,UnitsOnOrder,ReorderLevel,Distcountinued")] Product product)
+        public ActionResult Edit([Bind(Include = "ID,Name,SupplierID,Picture,CategoryID,price")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace BaiKiemTra2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
+            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", product.CategoryID);
             return View(product);
         }
 

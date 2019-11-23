@@ -12,11 +12,12 @@ namespace BaiKiemTra2.Controllers
 {
     public class CategoriesController : Controller
     {
-        private MyDbContext db = new MyDbContext();
+        private BaiKiemTra2Context db = new BaiKiemTra2Context();
 
         // GET: Categories
         public ActionResult Index()
         {
+
             return View(db.Categories.ToList());
         }
 
@@ -46,7 +47,7 @@ namespace BaiKiemTra2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,Picture")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace BaiKiemTra2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] Category category)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Picture")] Category category)
         {
             if (ModelState.IsValid)
             {

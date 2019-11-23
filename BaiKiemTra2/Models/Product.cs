@@ -8,22 +8,14 @@ namespace BaiKiemTra2.Models
 {
     public class Product
     {
-        public int ProductID { get; set; }
-        public string ProductName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public string SupplierID { get; set; }
         public string Picture { get; set; }
         [ForeignKey("Category")]
         public int CategoryID { get; set; }
         public Category Category { get; set; }
-        public int QuantityPerUnit { get; set; }
-       public double  UnitPrice { get; set; }
-        public double UnitslnStock { get; set; }
-
-        public string UnitsOnOrder { get; set; }
-
-        public int ReorderLevel { get; set; }
-
-        public int Distcountinued { get; set; }
+        public double price { get; set; }
 
 
     }

@@ -14,7 +14,7 @@ namespace BaiKiemTra2
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<MyDbContext>(null);
+          
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

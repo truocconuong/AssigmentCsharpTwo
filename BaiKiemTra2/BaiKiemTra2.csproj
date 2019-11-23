@@ -145,8 +145,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaiKiemTra2Context.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

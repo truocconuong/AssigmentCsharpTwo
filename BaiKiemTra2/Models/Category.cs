@@ -7,10 +7,13 @@ namespace BaiKiemTra2.Models
 {
     public class Category
     {
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
+        public List<Product> Products { get; set; }
+
+
 
     }
 }
